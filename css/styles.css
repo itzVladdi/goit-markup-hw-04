@@ -10,6 +10,8 @@
     --unactive-filter-color: #f5f4fa;
     --container-bg-color: #eeeeee;
     --heder-border-color: #ececec;
+    --icon-color: #afb1b8;
+    --icon-bg-color: rgba(255, 255, 255, 0.1);
 }
 
 /* Загальні стилі */
@@ -103,7 +105,6 @@ body {
 .page-header .nav-menu {
     display: flex;
 }
-
 .nav-menu .item:not(:last-child) {
     margin-right: 50px;
 }
@@ -133,7 +134,8 @@ body {
     margin-right: 50px;
 }
 .head-contacts .link {
-    display: inline-block;
+    display: flex;
+    align-items: center;
     padding-top: 32px;
     padding-bottom: 32px;
 
@@ -143,11 +145,25 @@ body {
     line-height: 1.14;
     letter-spacing: 0.02em;
 }
+.head-contacts .icon {
+    margin-right: 10px;
+    fill: currentColor;
+}
 
 /* Герой */
-
-.hero {
+.overlay {
+    max-width: 1600px;
+    height: 600px;
+    margin-left: auto;
+    margin-right: auto;
     background-color: var(--dark-bg-color);
+    background-image: linear-gradient(to right, rgba(47, 48, 58, 0.4), rgba(47, 48, 58, 0.4)),
+        url('../images/background.jpg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+.hero {
     padding-top: 200px;
     padding-bottom: 200px;
     text-align: center;
@@ -210,6 +226,15 @@ body {
 .benefits-card:not(:last-child) {
     margin-right: 30px;
 }
+.box-icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 120px;
+    background-color: var(--light-bg-color);
+    border-radius: 4px;
+    margin-bottom: 30px;
+}
 
 /* Чим ми займаємося */
 .services {
@@ -239,11 +264,10 @@ body {
 .team-list {
     display: flex;
 }
-.team-list .item:not(:last-child) {
+.team-list > .item:not(:last-child) {
     margin-right: 30px;
 }
-
-.team-list .item {
+.team-list > .item {
     width: 270px;
 
     background-color: var(--white-color);
@@ -270,10 +294,72 @@ body {
     font-size: 16px;
     line-height: 1.19;
     text-align: center;
+    margin-bottom: 16px;
 }
 .team-list .content {
     padding-top: 30px;
     padding-bottom: 30px;
+}
+.team-list .social-networks {
+    display: flex;
+    justify-content: center;
+}
+.social-networks .link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    color: var(--icon-color);
+    background-color: transparent;
+    border-radius: 50%;
+}
+.social-networks .link:hover,
+.social-networks .link:focus {
+    background-color: var(--accent-color);
+    color: var(--white-color);
+}
+.social-networks .icon {
+    fill: currentColor;
+}
+.social-networks .item:not(:last-child) {
+    margin-right: 10px;
+}
+
+/* Постійні кліенти */
+.clients .title {
+    margin-bottom: 50px;
+    font-size: 36px;
+    line-height: 1.16;
+    text-align: center;
+}
+.clients .list {
+    display: flex;
+}
+.clients .client {
+    width: 170px;
+    height: 92px;
+}
+.clients .client:not(:last-child) {
+    margin-right: 30px;
+}
+.client .link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    border: 1px solid var(--icon-color);
+    border-radius: 4px;
+    color: var(--icon-color);
+}
+.client .icon {
+    fill: currentColor;
+}
+.client .link:hover,
+.client .link:focus {
+    color: var(--accent-color);
+    border-color: var(--accent-color);
 }
 
 /* Футер */
@@ -306,10 +392,48 @@ body {
 .foot-contacts .addres:not(:last-child) {
     margin-bottom: 9px;
 }
-
+.page-footer .container {
+    display: flex;
+    align-items: baseline;
+}
+.page-footer .block {
+    min-width: 231px;
+    margin-right: 70px;
+}
+.join-in .title {
+    color: var(--white-color);
+    text-transform: uppercase;
+    font-size: 14px;
+    line-height: 1.14;
+    margin-bottom: 20px;
+}
+.join-in-list {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.join-in-list .link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    background-color: var(--icon-bg-color);
+    border-radius: 50%;
+}
+.join-in-list .icon {
+    fill: var(--white-color);
+}
+.join-in-list .item:not(:last-child) {
+    margin-right: 10px;
+}
+.join-in-list .link:hover,
+.join-in-list .link:focus {
+    background-color: var(--accent-color);
+}
 /* Портфоліо */
 
-/* Список філтрів */
+/* Список фільтрів */
 .filters-menu {
     display: flex;
     justify-content: center;
@@ -349,6 +473,15 @@ body {
 }
 .examples .card {
     width: calc((100% - 2 * 30px) / 3);
+}
+.examples .link {
+    display: block;
+    color: inherit;
+}
+.examples .link:hover,
+.examples .link:focus {
+    box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.12), 0px 4px 4px rgba(0, 0, 0, 0.06),
+        1px 4px 6px rgba(0, 0, 0, 0.16);
 }
 .border {
     border: 1px solid var(--container-bg-color);
